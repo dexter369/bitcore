@@ -1,61 +1,51 @@
 var Put = require('bufferput');
 var buffertools = require('buffertools');
-var hex = function(hex) {
-  return new Buffer(hex, 'hex');
-};
+var hex = function(hex) {return new Buffer(hex, 'hex');};
 
 exports.livenet = {
   name: 'livenet',
-  magic: hex('f9beb4d9'),
-  addressVersion: 0x00,
-  privKeyVersion: 128,
+  magic: hex('faf2efb4'),
+  addressVersion: 63,
+  privKeyVersion: 191
   P2SHVersion: 5,
   hkeyPublicVersion: 0x0488b21e,
   hkeyPrivateVersion: 0x0488ade4,
   genesisBlock: {
-    hash: hex('6FE28C0AB6F1B372C1A6A246AE63F74F931E8365E15A089C68D6190000000000'),
-    merkle_root: hex('3BA3EDFD7A7B12B27AC72C3E67768F617FC81BC3888A51323A9FB8AA4B1E5E4A'),
+    hash: hex('c4873c989047eb6bdad13bab1bff7dd2e6822902b6587b1e096bc43d5dffa326'),
+    merkle_root: hex('26a3ff5d3dc46b091e7b58b6022982e6d27dff1bab3bd1da6beb4790983c87c4'),
     height: 0,
-    nonce: 2083236893,
+    nonce: 261836,
     version: 1,
     prev_hash: buffertools.fill(new Buffer(32), 0),
-    timestamp: 1231006505,
-    bits: 486604799,
+    timestamp: 1405769613,
+    bits: 0x1e0fffff,
   },
   dnsSeeds: [
-    'seed.bitcoin.sipa.be',
-    'dnsseed.bluematt.me',
-    'dnsseed.bitcoin.dashjr.org',
-    'seed.bitcoinstats.com',
-    'seed.bitnodes.io',
-    'bitseed.xf2.org'
+    'seed.sdcoin.co'
   ],
-  defaultClientPort: 8333
+  defaultClientPort: 51737
 };
-
-exports.mainnet = exports.livenet;
 
 exports.testnet = {
   name: 'testnet',
-  magic: hex('0b110907'),
-  addressVersion: 0x6f,
-  privKeyVersion: 239,
+  magic: hex('0711050b'),
+  addressVersion: 0x7f,
+  privKeyVersion: 255,
   P2SHVersion: 196,
   hkeyPublicVersion: 0x043587cf,
   hkeyPrivateVersion: 0x04358394,
   genesisBlock: {
-    hash: hex('43497FD7F826957108F4A30FD9CEC3AEBA79972084E90EAD01EA330900000000'),
-    merkle_root: hex('3BA3EDFD7A7B12B27AC72C3E67768F617FC81BC3888A51323A9FB8AA4B1E5E4A'),
+    hash: hex('726fad846b2d5101883f0d5fea8f732d8a49ec0828c8ed475238c1870a910000'),
+    merkle_root: hex('26a3ff5d3dc46b091e7b58b6022982e6d27dff1bab3bd1da6beb4790983c87c4'),
     height: 0,
-    nonce: 414098458,
+    nonce: 55887,
     version: 1,
     prev_hash: buffertools.fill(new Buffer(32), 0),
-    timestamp: 1296688602,
-    bits: 486604799,
+    timestamp: 1405769613,
+    bits: 0x1f00ffff,
   },
   dnsSeeds: [
-    'testnet-seed.bitcoin.petertodd.org',
-    'testnet-seed.bluematt.me'
+    'testnet-seed.sdcoin.co'
   ],
-  defaultClientPort: 18333
+  defaultClientPort: 51997
 };
